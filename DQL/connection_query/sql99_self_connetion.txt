@@ -1,0 +1,5 @@
+
+SELECT e.last_name, m.last_name
+FROM employees e
+JOIN employees m
+ON e.manager_id = m.employ_id;
