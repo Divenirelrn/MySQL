@@ -5,4 +5,34 @@ select 查询列表[字段/常量值/表达式/函数] from 表名;
 查询单个字段：
     SELECT last_name FROM employees;
 查询多个字段：
-    
+    SELECT last_name, salary FROM employees;
+查询所有字段：
+    SELECT * FROM employees;
+
+查询常量：
+    SELECT 100;
+    SELECT 'John';
+
+查询表达式：
+    SELECT 100*48;
+
+查询函数：
+    SELECT VERSION();
+
+起别名：
+    便于理解
+    区分字段重名的情况
+    SELECT last_name AS 姓, first_name AS 名 FROM employees;
+    SELECT last_name 姓, first_name AS 名 FROM employee;
+    SELECT salary AS "out put" FROM emplyees;
+
+去重：
+    SELECT DISTINCT department_id FROM employees;
+
++号：
+    Mysql中加号的作用仅仅是运算符，不能作为连接符，错误用法示例：
+    SELECT last_name + first_name AS 姓名 FROM emplyees;
+
+拼接：
+    SELECT CONCAT(last_name, first_name) 姓名
+    FROM employees;
