@@ -1,0 +1,8 @@
+
+select 查询列表[字段/常量值/表达式/函数] from 表名;
+    查询的结果是一个虚拟表格
+
+查询单个字段：
+    SELECT last_name FROM employees;
+查询多个字段：
+    

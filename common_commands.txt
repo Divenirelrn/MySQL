@@ -1,0 +1,27 @@
+
+登录：
+    mysql -h localhost -P 3306 -u root -p***
+    mysql -u root -p***
+
+退出：
+    exit/ctrl+C
+
+查看mysql版本：
+    select version();
+
+常见命令：
+    show database; #显示数据库
+    use test; #转到test库
+    select database(); #查看所在库
+    show tables; #显示表
+    show tables from mysql; #显示mysql库的表
+    create table stuinfo(
+        id int,
+        name varchar(20));#创建表
+    desc stuinfo;#查看表结构
+    select * from stuinfo; #查看表中数据
+    insert into stuinfo (id,name) values(1, 'John'); #插入数据
+    update stuinfo set name='xiaojun' where id=1; #修改表数据
+    delete from stuinfo where id=1;#删除记录
+
+
