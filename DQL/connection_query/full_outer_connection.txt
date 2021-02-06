@@ -1,0 +1,12 @@
+
+SELECT b.*, bo.*
+FROM beauty b
+FULL OUTER JOIN boys bo
+ON b.boyfriend_id = bo.id;
+
+结果分为三部分：
+    内连结果
+    beauty表中有boys表中没有的
+    boys表中有beauty表中没有的
+
+    
