@@ -1,0 +1,13 @@
+
+SELECT LENGTH('John');
+SELECT CONCAT(...) FROM ...;
+SELECT UPPER('John');
+SELECT LOWER('John');
+SELECT SUBSTR/SUBSTRING('李莫愁爱上了李展元', 7); #mysql的索引从1开始
+SELECT SUBSTR/SUBSTRING('李莫愁爱上了李展元', 1, 3);
+SELECT INSTR('杨不悔爱上了殷六侠', '殷六侠'); #返回起始索引,找不到则返回0
+SELECT TRIM('  张翠山  ') AS out_put;
+SELECT TRIM('a' FROM 'aaa张翠山aaa') AS out_put;
+SELECT LPAD('殷六侠', 10, '*') AS out_put; #左补齐
+SELECT RPAD('殷六侠', 10, '*') AS out_put; #右补齐
+SELECT REPLACE('张无忌爱上了周芷若', '周芷若','赵敏') AS out_put;
