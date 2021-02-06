@@ -9,4 +9,3 @@ ON b.boyfriend_id = bo.id;
     beauty表中有boys表中没有的
     boys表中有beauty表中没有的
 
-    

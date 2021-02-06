@@ -1,0 +1,7 @@
+
+SELECT b.*, bo.*
+FROM beauty b
+CROSS JOIN boys bo;
+
+结果：
+    笛卡尔乘积
