@@ -1,0 +1,22 @@
+
+左/右外连接一般用于查询一个表中有、另一个表中没有
+主表、从表
+查询结果包含两部分：
+    交集部分（内连接结果）
+    主表中有从表中没有的（没有的显示NULL）
+左外连接，left join左边是主表
+右外连接，right join右边是主表
+
+左外连接：
+    SELECT b.name, bo.*
+    FROM beauty b
+    LEFT OUTER JOIN boys bo
+    ON b.boyfriend_id = bo.id
+    WHERE bo.id IS NULL;
+
+右外连接：
+    SELECT b.name, bo.*
+    FROM boys bo
+    RIGHT OUTER JOIN beauty b
+    ON b.boyfriend_id = bo.id
+    WHERE bo.id IS NULL;
