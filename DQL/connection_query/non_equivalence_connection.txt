@@ -1,0 +1,5 @@
+
+SELECT salary, grade_level
+FROM emplyees e, job_grades j
+WHERE salary BETWEEN j.lowest_sal AND j.highest_sal;
+
