@@ -1,0 +1,21 @@
+SELECT NAME,boyName
+FROM boys,beayty
+WHERE beauty.boyfriend_id = boys.id;
+
+字段重名：
+    SELECT last_name, e.job_id, job_title
+    FROM employees e, jobs j
+    WHERE e.job_id = j.job_id;
+
+加筛选：
+    SELECT last_name, e.job_id, job_title
+    FROM employees e, jobs j
+    WHERE e.job_id = j.job_id
+    AND e.bonus IS NOT NULL;
+
+加排序：
+    SELECT last_name, e.job_id, job_title
+    FROM employees e, jobs j
+    WHERE e.job_id = j.job_id
+    GROUP BY job_title
+    ORDER BY COUNT(*) DESC;
