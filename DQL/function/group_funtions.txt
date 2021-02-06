@@ -1,0 +1,30 @@
+
+常用分组函数：
+    sum,avg,max,min,count
+
+SELECT SUM(salary) FROM employees;
+SELECT AVG(salary) FROM ...;
+SELECT MIN(salary) FROM ...;
+SELECT MAX(salary) FROM ...;
+SELECT COUNT(salary) FROM ...;
+SELECT SUM(salary) 和, AVG(salary) 平均
+FROM employees;
+
+使用特点：
+    sum,avg一般用于处理数值型数据
+    max,min,count可以处理任何类型
+    所有分组函数忽略NULL值
+
+分组函数与distinct搭配使用：
+    SELECT SUM(DISTINCT salary) FROM employees;
+
+统计行数：
+    SELECT COUNT(*) FROM employees;
+    SELECT COUNT(1) FROM employees;
+    *效率对比：
+        INNODB存储引擎：效率差不多
+        MYISAM存储引擎：COUNT(*)效率略高
+
+分组函数注意事项：
+    与分组函数一同查询的字段有限制：
+        要求是group by后的字段
