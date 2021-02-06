@@ -1,0 +1,15 @@
+sql99语法介绍：
+    SELECT 查询列表
+    FROM 表1 别名 [连接类型]
+    JOIN 表2 别名 ON 连接条件
+    [WHERE 筛选条件]
+    [GROUP bY 分组]
+    [HAVING 筛选条件]
+    [ORDER BY 排序列表]
+
+连接类型：
+    inner:内连
+    left [outer]：左连
+    right [outer]: 右连
+    full [outer]: 全连
+    cross: 交叉连接
