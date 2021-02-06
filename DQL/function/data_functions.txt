@@ -1,0 +1,18 @@
+
+SELECT NOW(); #返回日期+时间
+SELECT CURDATE(); #返回日期
+SELECT CURTIME(); #返回时间
+SELECT YEAR(NOW()) 年;
+       MONTH
+       MONTH NAME
+SELECT STR_TO_DATE('9-13-1999', '%m-%d-%Y');
+SELECT DATE_FORMATE('2018/6/6', '%Y年%m月%d日');
+符号意义：
+    %Y/%y
+    %m/&c
+    %d
+    %H/%h
+    %i
+    %s
+
+
