@@ -1,0 +1,79 @@
+
+SELECT
+    查询列表
+FROM
+    表名
+WHERE
+    筛选条件;
+
+执行顺序：表名 -> 筛选条件 -> 查询列表
+
+筛选条件：
+    按条件表达式筛选（>,<,=,<>(不等于),>=,<=）
+    按逻辑表达式筛选(&&,||,!,and,or,not)
+    模糊查询(like,between and, in, is null)
+
+按条件表达式筛选：
+    SELECT
+        last_name, salary
+    FROM
+        employees
+    WHERE
+        salary > 12000;
+
+按逻辑表达式查询：
+    SELECT
+        last_name, salary
+    FROM
+        emplyees
+    WHERE
+        salary >= 1000 AND salary <= 20000;
+
+like关键字：
+    SELECT
+        *
+    FROM
+        employees
+    WHERE
+        last_name LIKE '%a%';
+        (last_name LIKE '--e-a%')
+
+    *%:匹配0个或多个字符
+     -:匹配一个字符
+
+     *转义字符：
+        '_$_%' ESCAPE '$'; #指定转义字符为$
+
+between and关键字：
+    SELECT
+        *
+    FROM
+        ...
+    WHERE
+        employee_id BETWEEN 100 AND 120;
+
+in:
+    SELECT
+        last_name, job_id
+    FROM
+        employees
+    WHERE
+        job_id in ('IT','AD_VP','AD_PRES'); #要求类型兼容
+
+is null/is not null关键字：
+    SELECT
+        bonus
+    FROM
+        employees
+    WHERE
+        bonus IS NULL;
+    *is不是关键字，=、<>不能用于判断NULl类型
+
+安全等于：
+    SELECT
+        bonus
+    FROM
+        employees
+    WHERE
+        bonus <=> NULL;
+
