@@ -1,0 +1,40 @@
+
+语法：
+    SELECT column, group_function(column)
+    FROM table
+    [WHERE condition]
+    [GROUP BY group_by_expression]
+    [ORDER BY column];
+
+SELECT MAX(salary), job_id
+FROM employees
+GROUP BY job_id; #查询每个工种的最高工资
+
+添加筛选条件（分组前筛选）：
+    SELECT AVG(salary), department_id
+    FROM employees
+    WHERE email LIKE '%a%'
+    GROUP BY department_id;
+
+添加复杂的筛选条件（分组后筛选）：
+    SELECT COUNT(*), departmen_id
+    FROM employees
+    GROUP BY deparment_id
+    HAVING COUNT(*) > 2;
+
+按表达式/函数筛选：
+    SELECT COUNT(*), LENGTH(last_name) last_name
+    FROM employees
+    GGROUP BY LENGTH(last_name)
+    HAVING COUNT(*) > 5;
+
+按多个字段查询：
+    SELECT AVG(salary), deparment_id, job_id
+    FROM employees
+    GROUP BY department_id, job_id
+
+添加排序：
+    SELECT AVG(salary), department_id
+    FROM employees
+    GROUP BY job_id, deparment_id
+    ORDER BY AVG(salary) DESC;
