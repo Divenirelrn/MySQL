@@ -1,0 +1,24 @@
+
+笛卡尔乘积：
+    SELECT name,boyname FROM beauty,boys;(错误用法)
+    *笛卡尔乘积现象，表beauty有12条记录，表boys有4条记录，则查询结果有48条记录
+     缺乏有效的连接条件
+    正确用法：
+        SELECT name,boyname FROM beauty, boys
+        WHERE beauty.boyfriend_id = boys.id;
+
+连接查询的分类：
+    按年代分类：
+        sql92标准：仅支持内连
+        sql99标准：不支持全外连接
+    按功能分类：
+        内连接：
+            等值连接
+            非等值连接
+            自连接
+        外连接：
+            左外连接
+            右外连接
+            全外连接
+        交叉连接
+        
