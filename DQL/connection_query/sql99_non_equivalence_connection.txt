@@ -1,0 +1,5 @@
+
+SELECT salary, grade_level
+FROM emplyees e
+JOIN job_grades j
+ON e.salary BETWEEN j.lowest_sal AND j.highest_sal;
