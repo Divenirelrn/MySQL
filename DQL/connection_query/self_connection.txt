@@ -1,0 +1,8 @@
+
+相当于自连接，一个表找n遍
+并不是所有表都支持自连接
+
+SELECT e.employee_id,e.las_name,m.emloyee_id,m.last_name
+FROM emplyees e,emplyees m
+WHERE e.manager_id=m.employee_id;
+
