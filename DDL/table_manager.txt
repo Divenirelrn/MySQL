@@ -1,0 +1,48 @@
+
+表的创建：
+    CREATE TABLE 表名(
+        列名 列的类型[(长度) 列的约束],
+        列名 列的类型[(长度) 列的约束],
+        ...
+    )
+    例：
+    CREATE TABLE book(
+        id INT,
+        bName VARCHAR(20),
+        price DOUBLE,
+        author VARCHAR(20)
+    )
+
+表的修改：
+    修改列名：
+        ALTER TABLE book CHANGE COLUMN publishdate pubDate DATETIME;
+    修改列的类型或约束：
+        ALTER TABLE book MODIFY COLUMN pubDate TIMESTAMP;
+    添加新列：
+        ALTER TABLE author ADD COLUMN annual DOUBLE;
+    删除列：
+        ALTER TABLE author DROP COLUMN annual;
+    修改表名：
+        ALTER TABLE author RENAME TO book_author;
+
+表的删除：
+    DROP TABLE author;
+    通用写法：
+        DROP DATABASE IF EXISTS 旧库名;
+        CREATE DATABASE 新库名;
+        DROP TABLE IF EXISTS 旧表名;
+        CREATE TABLE 表名();
+
+表的复制：
+    仅复制表结构：
+        CREATE TABLE copy_table LIKE author;
+    复制整个表：
+        CREATE TABLE copy_table
+        SELECT * FROM author;
+    仅复制某些字段：
+        CREATE TABLE copy_table
+        SELECT id, author_name
+        FROM author
+        WHERE 1=2;
+
+        
