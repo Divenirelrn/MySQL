@@ -45,4 +45,4 @@
         FROM author
         WHERE 1=2;
 
-        
+
