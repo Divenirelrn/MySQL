@@ -1,0 +1,8 @@
+
+查询员工编号最小且工资最高的员工信息：
+SELECT *
+FROM emplyees
+WHERE (emplyee_id,salary) = (
+    SELECT MIN(emplyee_id), MAX(salary)
+    FROM emplyees
+);

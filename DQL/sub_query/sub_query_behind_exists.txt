@@ -1,0 +1,5 @@
+
+相关子查询
+起到过滤的作用
+
+SELECT EXISTS(SELECT emplyee_id FROM employees);

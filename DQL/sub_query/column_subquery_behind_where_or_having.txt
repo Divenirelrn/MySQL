@@ -1,0 +1,23 @@
+
+ANY/SOME(二者功能相同)：
+    a > ANY(10,20,30) #大于任何一个即可
+
+ALL:
+    a > ALL(10,20,30) #大于所有的
+
+返回location_id是1400或1700的部门中所有员工姓名：
+    SELECT last_name
+    FROM employees
+    WHERE department_id IN(
+        SELECT department_id
+        FROM department
+        WHERE location_id IN(1400,1700);
+    );
+
+SELECT last_name,job_id
+FROM employees
+WHERE salary < ANY(
+    SELECT salary
+    FROM employees
+    WHERE job_id = 'IT_PROG'
+);

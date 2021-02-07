@@ -1,0 +1,17 @@
+
+特点：
+    子查询放在小括号内
+    一般放在条件的右侧
+    标量子查询，一般搭配单行操作符（>,<,>=,<>,...）
+    列子查询，一般搭配多行操作符（IN, ANY/SOME,ALL,...）
+
+子查询的执行优先级先于主查询
+
+SELECT *
+FROM employees
+WHERE salary > (
+    SELECT salary
+    FROM employees
+    WHERE last_name = 'Abel'
+);
+

@@ -1,0 +1,10 @@
+
+查询每个部门的平均工资的工资等级：
+    SELECT ag_dep.*, g.grade_level
+    FROM (
+        SELECT AVG(salary) av, department_id
+        FROM emplyees
+        GROUP BY department_id
+    ) ag_dep
+    INNER JOIN job_grades g
+    ON ag_dep.ag BETWEEN lowest_sal AND highese_sal;
