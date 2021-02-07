@@ -1,0 +1,20 @@
+
+方式一：
+    DELETE FROM 表名 WHERE 筛选条件;
+
+    单表删除
+    多表删除
+
+
+方式二：
+    TRUNCATE TABLE 表名;
+
+    清空表
+
+两种方式比较：
+    DELETE可加WHERE条件, TRUNCATE不可加
+    TRUNCATE效率稍高
+    加入要删除的表中有自增长列，若用DELETE删除，再插入数据时，从断点处开始；
+        若用TRUNCATE删除，从头开始
+    TRUNCATE无返回值，DELETE有返回值
+    TRUNCATE删除后不能回滚，DELETE可以
