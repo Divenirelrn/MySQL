@@ -1,0 +1,19 @@
+
+修改单表记录：
+    UPDATE 表名
+    SET 列=新值, 列=新值, ...
+    WHERE 筛选条件;
+
+修改多表记录：
+    sql92语法：
+        UPDATE 表1 别名,表2 别名
+        SET 列=值, 列=值, ...
+        WHERE 连接条件
+        AND 筛选条件;
+
+    sql99语法：
+        UPDATE 表1 别名
+        [INNER|LEFT|RIGHT] JOIN 表2 别名
+        ON 连接条件
+        SET 列=值, 列=值, ...
+        WHERE 筛选条件;
