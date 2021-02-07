@@ -1,0 +1,25 @@
+分页查询
+
+应用场景：
+    分页显示
+
+语法：
+    SELECT 查询列表
+    FROM 表
+    [JOIN type] JOIN 表2
+    ON 连接条件
+    WHERE 筛选条件
+    GROUP BY 分组字段
+    HAVING 分组后的筛选
+    ORDER BY 排序字段
+    LIMIT offset, size;
+
+    *LIMIT放于最后
+     offset-起始索引
+     size-条目数（条目数从0开始）
+
+ 查询前5条员工信息：
+    SELECT *
+    FROM employees
+    LIMIT 0,5;(可写成LIMIT 5;)
+
