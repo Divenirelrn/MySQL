@@ -1,0 +1,14 @@
+
+库的管理
+
+库的创建：
+    CREATE DATABASE 库名;
+    CREATE DATABASE IF NOT EXISTS books; #容错处理
+
+库的修改：
+    一般库不修改
+    更新库的字符集：
+        ALTER DATABASE books CHARACTER SET gbk;
+
+库的删除：
+    DROP DATABASE IF EXISTS books;
