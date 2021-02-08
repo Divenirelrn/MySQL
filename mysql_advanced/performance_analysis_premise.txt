@@ -1,0 +1,8 @@
+
+mysql有专门负责优化select语句的优化器模块
+
+mysql常见瓶颈：
+    CPU
+    IO
+    硬件性能瓶颈
+

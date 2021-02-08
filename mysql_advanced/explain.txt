@@ -1,0 +1,53 @@
+
+执行计划，可以模拟优化器执行sql查询语句
+
+使用：explain select * from tbl_exp;
+
+作用：
+    表的读取顺序
+    数据读取操作的操作类型
+
+explain之id介绍
+    查询的序列号，包含一组数字，表示查询中执行select子句或操作表的顺序
+
+    id相同，执行顺序由上至下
+    id不同，若是子查询，id序号会递增，id值越大优先级越高
+    id相同不同同时存在
+
+explain之select_type与table
+    select_type（查询类型）
+        simple:简单查询
+        primary:包含子查询，外层查询为primary
+        subquery:子查询
+        derived:在from列表中包含的子查询（衍生）
+        union
+        union result
+
+explain之type:
+    访问类型排列
+    显示查询使用了何种类型：
+        system:表只有一行记录
+        const：primary key
+        eq_ref
+        ref:最好达到
+        range：至少达到
+        index
+        all:全表扫描
+
+explain之possible_keys与key
+    possible_keys:可能应用于这张表的索引
+    key:实际使用的索引
+
+explain之key_len介绍：
+    索引中的字节数
+
+explain之ref:
+    显示索引的哪一列被使用了
+
+explain之rows介绍：
+    根据表统计信息与索引选用情况，大致估算出找到所需记录需要读取的行数
+
+explain之extra:
+    包含不适合在其他列中显示但十分重要的信息
+
+    
