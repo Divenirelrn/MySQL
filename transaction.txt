@@ -1,0 +1,58 @@
+
+事务：一个或一组sql语句组成的一个执行单元
+      要么全部执行，要么全部不执行
+
+TCL：事务控制语言
+
+存储引擎（表类型）：
+    show engines;
+    innodb, myisam, memory, ...
+    innodb支持事务
+
+事务的ACID属性：
+    Atomicity(原子性)：不可分割，要么都执行，要么都不执行
+    Consistency(一致性)：事务必须使数据库以一个一致性的状态切换到另一个一致性状态
+                         （之前两人余额总数为2000，转账之后还应为2000）
+    Isolation(隔离性)：一个事务的执行不能被另一个事务干扰
+                       （转账期间，若查询余额，还应是之前的）
+    Durability(持久性)：一个事务一旦被提交，对数据库的改变就是永久性的
+                        接下来的其他操作与数据库故障不应对其有任何影响
+
+事务创建：
+    隐式事务：没有明显的开启与结束的标记，insert、uodate、delete...
+    显式事务：有明显的开启与结束的标记，但必须先设置自动提交功能为禁用
+
+    SET AUTOCOMMIT = 0; #设置自动提交功能为禁用（默认开启事务）
+    START TRANSACTION; #开启事务（可选）
+    结束事务：
+        COMMIT; #提交事务
+        ROLLBACK; #回滚事务
+        *commit之前的改变只是保存在内存中
+
+事务并发问题的介绍：
+    多个事务访问数据库中相同的数据
+
+事务并发问题：
+    脏读：两个事务T1,T2,T2更新但还未提交，此时T1读取，若T2回滚，则T1读取到的数据就是临时且无效的（针对更新或删除）
+    不可重复读：T1读取了一个字段，此时T2更新了，之后T1再次读取，两次读到的数据不一样
+    幻读：T1读取了一个字段，T2在该表中插入了一些新的行，之后T1再读，就多出几行（针对插入）
+
+事务的隔离级别：
+    READ UNCOMMITTED(读未提交数据)，该级别下，脏读、不可重复读、幻读均可能出现
+    READ COMMITED(读已提交数据)，该级别下，不可重复读、幻读可能出现
+    REPEATABLE READ(可重复读，默认级别)，该级别下，幻读可能出现
+    SERIALIZABLE(串行化)：都不会出现，但效率低下
+
+查看隔离级别：SELECT @@tx_isolation;
+设置隔离级别：SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+设置全局隔离级别：SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITED;
+设置字符集：SET NAMES gbk;
+
+回滚点：
+    SET AUTOCOMMIT = 0;
+    START TRANSACTION;
+    DELETE FROM account WHERE id=1;
+    SAVEPOINT a;
+    DELETE FROM account WHERE id=2;
+    ROLLBACK TO a;
+

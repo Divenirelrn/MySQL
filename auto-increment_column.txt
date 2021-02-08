@@ -22,4 +22,3 @@ INSERT INTO tab_identity VALUES(NULL, 'john');
 修改表时删除标识列：
     ALTER TABLE tab_identity MODIFY COLUMN id INT;
 
-    
