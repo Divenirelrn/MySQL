@@ -1,0 +1,25 @@
+
+自增列：
+    系统提供默认的序列值
+
+CREATE TABLE tab_identity(
+    id INT PRIMARY KEY_AUTO_INCREMENT,
+    name VARCHAR(20)
+);
+
+INSERT INTO tab_identity VALUES(NULL, 'john');
+
+设置自增步长：
+    SET auto_increment_increment = 3;
+
+特点：
+    标识列必须有一个key搭配
+    一个表至多有一个标识列
+    标识列的类型只能是数值型
+
+修改表时设置标识列：
+    ALTER TABLE tab_identity MODIFY COLUMN id INT PRIMARY KEY AUTO_INCREMENT;
+修改表时删除标识列：
+    ALTER TABLE tab_identity MODIFY COLUMN id INT;
+
+    
