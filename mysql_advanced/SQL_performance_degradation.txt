@@ -1,0 +1,16 @@
+
+SQL性能下降原因：
+    执行时间长
+    等待时间长
+    查询语句不高效
+    索引失效
+    关联查询太多JOIN
+    服务器调优及各个参数设置（缓冲、线程数等）
+
+单值索引：
+    create index idx_user_name
+    on user(name);
+
+复合索引：
+    create index idx_user_name_email
+    on user(name,email);
