@@ -56,3 +56,7 @@ TCL：事务控制语言
     DELETE FROM account WHERE id=2;
     ROLLBACK TO a;
 
+delete与truncate在事务中的区别：
+    truncate在事务执行不能回滚
+    dalete可以回滚
+

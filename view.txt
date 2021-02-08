@@ -1,0 +1,67 @@
+视图：
+    虚拟的表，使用方式与普通表一样
+    mysql5.1出现的新特性
+    一个复杂的查询结果封装成一个视图（结果集，临时性的）
+    动态生成的，只保存sql逻辑，不保存查询结果
+
+应用场景：
+    多个地方用到同样的查询，该查询的结果使用的sql语句较复杂
+
+优点：
+    重用sql语句
+    简化复杂的sql语句
+    保护数据，提高安全性
+
+视图的创建：
+    CREATE VIEW v1
+    AS
+    SELECT stuname,major_name
+    FROM stuinfo s
+    INNER JOIN major m ON s.major_id = m.id;
+
+视图的使用：
+    SELECT * FROM v1 WHERE stuname LIKE '张%';
+
+视图的修改：
+    方式一：
+        CREATE OR REPLACE VIEW 视图名
+        AS
+        查询语句;
+    方式二：
+        ALTER VIEW 视图名
+        AS
+        查询语句;
+
+视图的查看：
+    DESC myv3;
+
+视图的删除：
+    DROP VIEW 视图名, 视图名，...;
+
+视图的更新：
+    插入：
+        INSERT INTO myv1 VALUES(...);
+    修改：
+        UPDATE myv1 SET last_name='张无忌' WHERE last_name='张飞';
+    删除：
+        DELETE FROM myv1 WHERE last_name='张无忌';
+
+    *具备以下条件的视图不允许更新:
+        包含以下关键字：分组函数、distinct、group by、having、union或union all
+        常量视图：CREATE OR REPLACE VIEW myv1
+                  AS
+                  SELECT 'john' NAME;
+        SELECT中包含子查询
+        JOIN
+        FROM一个不能更新的视图
+        WHERE子句的子查询引用了FROM子句中的表
+
+视图与表的对比：
+    创建语法不同
+    视图不占用物理空间
+    视图一般不能增删改
+
+
+
+
+
