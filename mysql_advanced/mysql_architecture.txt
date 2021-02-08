@@ -1,0 +1,11 @@
+
+mysql逻辑架构简介：
+    连接层
+    服务层：SQL INTERFACE, PARSER, OPTIMIZER, CACHES & BUFFERS
+    引擎层：Pluggable storage engines
+    存储层：File System
+
+存储引擎;
+    InnoDB
+    MyISAM
+
