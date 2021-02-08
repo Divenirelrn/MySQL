@@ -1,0 +1,58 @@
+
+系统变量
+    全局变量
+    会话变量
+自定义变量：
+    用户变量
+    局部变量
+
+系统变量：
+    变量由系统提供，属于服务器层面
+    查看所有的系统变量：
+        SHOW GLOBAL|[SESSION] VARIABLES LIKE '%char%';
+    查看某个系统变量：
+        SELECT @@ global|session 系统变量名;
+    为某个系统变量赋值：
+        方式一：SET GLOBAL|[SESSION] 系统变量名=值;
+        方式二：SET @@GLOBAL|SESSION 系统变量名=值;
+    作用域：
+        服务器每次启动为所有的全局变量赋初始值（不能跨重启）
+
+会话变量：
+    作用域：针对于当前的会话
+    查看：SHOW [SESSION] VARIABLES;
+    查看部分：SHOW VARIABLES LIKE '%char%';
+    查看某个：SELECT @@tx_isolation;
+    为某个赋值：SET @@session tx_isolation='read_uncommitted';
+                SET SESSION tx_isolation='read_commited';
+
+用户变量：
+    声明 -> 赋值 -> 使用（查看、比较、运算、...）
+    用户变量作用域：针对于当前会话
+    声明并初始化：
+        SET @用户变量名=值;
+        SET @用户变量名 := 值;
+        SELECT @用户变量名:=值;
+
+    赋值：
+        方式一：
+            SET @用户变量名=值;
+            SET @用户变量名 := 值;
+            SELECT @用户变量名:=值;
+        方式二：
+            SELECT 字段 INTO 变量名 FROM 表;
+
+    使用（查看）:
+        SELECT @用户变量名;
+
+局部变量：
+    作用域：局部（定义它的begin...end中），只能在第一句话
+    声明：DECLARE 变量名 类型;
+          DECLARE 变量名 类型 DEFAULT 值;
+    赋值：通过SET或SELECT
+          通过SELECT INTO
+    使用：SELECT 局部变量名;
+    用户变量与局部变量对比：
+        作用域不同
+        位置不同
+
